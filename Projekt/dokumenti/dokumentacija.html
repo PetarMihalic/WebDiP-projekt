@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="hr">
+    <head>
+        <title>Dokumentacija</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="naslov" content="Autor">
+        <meta name="autor" content="Petar Mihalić">
+        <meta name="opis" content="Stranica kreirana 15.3.2021.">
+        <meta name="kljucne_rijeci" content="doc, opis, zadatak">
+        <link rel="stylesheet" type="text/css" href="../css/pmihalic.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="naslov"><a href="#sadrzaj" class="title">Dokumentacija</a></h1>
+    </header>
+    <section id="sadrzaj" style="width: 1000px; margin-left: auto; margin-right: auto;">
+        <h1 style="text-align: left;">a) Opis projektnog zadatka</h1>
+        <p>Administrator</p>
+        <ul>
+            <li>Pregledava/kreira/ažurira kategorije cesta (Autocesta, Državna cesta, ...) i dodjeljuje
+moderatore. Jedan moderator može upravljati s više kategorija cesta, a jedna kategorija
+može imati više moderatora.</li>
+            <li>Može napraviti sigurnosnu kopiju (eng. backup) svih dionica cesta i popisa dokumenata iz
+baze u obliku SQL skripte. Ne radi se sigurnosna kopija datoteka.
+</li>
+            <li>Može vratiti podatke iz sigurnosne kopije pri čemu se brišu trenutni podaci u bazi. Za svaku
+dionicu ceste automatski se provjerava da li postoje fizičke datoteke dokumenata koje su
+postavljene od strane prometnika i ako ne šalje se zahtjev na e-mail prometniku da se
+ponovo postave.</li>
+            <li>Administrator vidi statistiku korištenja sustava pristupa stranicama (min 5), uz mogućnost
+filtriranja po korisnicima i vremenskom razdoblju (od – do).</li>
+        </ul>
+        <p>Moderator</p>
+        <ul>
+            <li>Pregledava/kreira/ažurira dionice cesta za kategorije cesta za koje je zadužen. Kod kreiranja
+mora odabrati kategoriju ceste i unijeti oznaku (DC3), naziv početka dionice (Varaždin), naziv
+završetka dionice (Čakovec) i broj kilometara.
+</li>
+            <li>Može vidjeti popis problema i otvoriti/zatvoriti dionicu ceste za daljnje prometovanje.</li>
+            <li>Vidi popis dokumenata te potvrđuje/odbija dokumente za dionicu ceste koje je postavio
+prometnik. Posebno su označeni dokumenti dionice cesta koji nisu potvrđeni ili odbijeni.</li>
+        </ul>
+        <p>Registrirani korisnik / Prometnik</p>
+        <ul>
+            <li>Može evidentirati obilazak odabirom dionice ceste koja je otvorena i prijaviti problem na
+cesti. Prijava se sastoji od naziva, opisa, datuma i vremena.</li>
+            <li>Vidi popis svih svojih obilazaka s ukupnim brojem prijeđenih kilometara.</li>
+            <li>Može postavljati dokumente za dionicu ceste pri čemu bira vrstu dokumenta (slika, video,
+audio, ...).</li>
+            <li>Vidi galeriju potvrđenih dokumenata. Može filtrirati po vrsti dokumenta i definirati koliko
+dokumenata se prikazuje po stranici.</li>
+        </ul>
+        <p>Neregistrirani korisnik</p>
+        <ul>
+            <li>Na početnoj stranici prikazana je statistika broja problema po kategoriji ceste.</li>
+            <li>Vidi popis svih dionica cesta (oznaka, početna i završna dionica) grupirano po kategorijama.</li>
+            <li>Može pretraživati dionice ceste unosom polazišta i odredišta čime dobiva popis dostupnih
+dionica ceste s brojem kilometara.</li>
+            <li>Putem RSS kanala može se pratiti zatvorene dionice ceste po svakoj kategoriji ceste.</li>
+        </ul>
+        <hr>
+        <h1 style="text-align: left;">b) Opis projektnog rješenja</h1>
+        U nastavku je opis projektnog rješenja. Sam sustav je dostupan na "http://barka.foi.hr/WebDiP/2020_projekti/WebDiP2020x060/index.php".
+        <hr>
+        <h1 style="text-align: left;">c) Dijagram slučajeva korištenja s ulogama (navigacijski dijagram)</h1>
+        <img src="../multimedija/pmihalic-navigacijski.png" alt="navigacijski" style="width: 100%;">
+        <hr>
+        <h1 style="text-align: left;">d) Shema baze podataka (ERA model)</h1>
+        <img src="../multimedija/pmihalic-ERA.PNG" alt="ERA" style="width: 100%;">
+        <hr>
+        <h1 style="text-align: left;">e) Popis i opis skripata i datoteka od kojih se sastoji projekt, mapa mjesta</h1>
+        <ul>
+            <li>css
+                <ul>
+                    <li>pmihalic.cs - cs datoteka sa definiranim stilova koji se koriste u svim stranicama</li>
+                </ul>
+            </li>
+            <li>dokumenti
+                <ul>
+                    <li>autor.html - informacije o autoru (slika, ime, prezime, broj indeksa, mail)</li>
+                    <li>dokumentacija.html - datoteka u kojoj je detaljno opisan projekt i dijelovi</li>
+                </ul>
+            </li>
+            <li>klase
+                <ul>
+                    <li>baza.class.php - klasa za spajanje na mysql bazu te funcijama za izvrašavanje upita</li>
+                    <li>dnevnik.class.php - klasa sa funkcijom koja dodaje zapis u dnevnik (logovi)</li>
+                    <li>sesija.class.php - klasa sa funkcijama za stvaranje i rad sa sesijama</li>
+                    <li>sigurnosna_kopija.class.php - klasa za generiranje, pohranu i skidanje sigurnosne kopije</li>
+                </ul>
+            </li>
+            <li>multimedija
+                <ul>
+                    <li>dokumenti - mapa u koju se spremaju prenešeni dokumenti od strane korisnika</li>
+                    <li>FacebookIcon.png</li>
+                    <li>PrometLogo.png</li>
+                    <li>RSS Icon.png</li>
+                    <li>Twitter Icon.png</li>
+                    <li>desktop.ini</li>
+                    <li>highways.jpg</li>
+                    <li>pmihalic-ERA.PNG</li>
+                    <li>pmihali-navigacijski.png</li>
+                    <li>portrait.jpg</li>
+                </ul>
+            </li>
+            <li>obrasci
+                <ul>
+                    <li>prijava.php - php skripta sa formom za prijavu</li>
+                    <li>registracija.php - php skripta sa formom za prijavu</li>
+                </ul>
+            </li>
+            <li>privatno
+                <ul>
+                    <li>.htaccess - dokument koji omogućuje autorizaciju za određenu stranicu</li>
+                    <li>korisnici.php - stranica sa popisom svih korisnika koja je zaštićena htaccess-om</li>
+                </ul>
+            </li>
+            <li>sigurnosne_kopije
+                <ul>
+                    <li>backup.png - php skipta u kojoj se poziva clasa za sigurnosnu kopiju</li>
+                    <li>dionice.php - php skripta sa popisom dionica te mogucim filtriranjem</li>
+                    <li>dokumenti.php - php skripta koja registriranim korisnicima prikazuje potvrđene dokumente a jačim ulogama omogućuje upravljanje</li>
+                    <li>index.php - php skripta koja prikazuje početnu stranicu, na kojoj je statistika problema te veze </li>
+                    <li>kategorije.php - php skripta koja je dostupna adminu, omogućuje upravljanje kategorijama i moderatorima za njih</li>
+                    <li>meni.php - php skripta koja ovisno o ulozi korisnika ispisuje navigaciju</li>
+                    <li>obilasci.php - php skripta koja ispisuje popis obilazaka za prijavljenog korisnika</li>
+                    <li>problemi.php - php skripta sa popisom problema i upravljanjem od strane moderatora i admina</li>
+                    <li>statistika.php - php skripta sa statistikom korištenja sustava</li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+        <h1 style="text-align: left;">f) Popis i opis korištenih tehnologija i alata</h1>
+        <ul>
+            <li>Windows OS - svi programi i rad na projektu je obavljen na Windows 10 OS-u</li>
+            <li>Apache NetBeans IDE 12.3 - Projekt i sav kod pisan je u navedenom programu, također remote spajanje na bazu</li>
+            <li>phpmyadmin - kreiranje baze, ažuriranje, tesitranje upita, pregled</li>
+            <li>FileZilla - korištena za postavljanje ograničenja datoteka te prijenos na server barka.foi.hr</li>
+        </ul>
+        <hr>
+        <h1 style="text-align: left;">g) Popis i opis korištenih vanjskih izvora (moduli/biblioteke) i njihovo korištenje u skriptama</h1>
+        <ul>
+            <li>Koristio sam JavaScript skriptu za generiranje stupčastog dijagrama na statistika.php (https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js)</li>
+        </ul>
+        <hr>
+        <h1 style="text-align: left;">h) Opis završenosti projekta</h1>
+        <p>Implementirane su sve osnovne funkcionalnoti kod svake od četiri uloge korisnika, sustav je u potpunosti ispravan, no ima detalja koje nisam uspio implementirati. Nedostaje korištenja AJAXA/XML-a te više tehničkih detalja koji nemaju veliki utjecaj na rad sustava.</p>
+        <hr>
+    </section>
+    </body>
+</html>
